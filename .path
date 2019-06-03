@@ -1,8 +1,8 @@
-PATH=$HOME/bin:$PATH
-PATH=$HOME/bin/shell-config:$PATH
-PATH=$HOME/local/node/bin:$PATH
-PATH=/usr/local/bin:$PATH
-PATH=/usr/local/share/npm/bin:$PATH
-PATH=/usr/local/gnat/bin:$PATH
-PATH=$HOME/.cabal/bin:$PATH
+PATH="/bin:$PATH"
+PATH="/usr/bin:$PATH"
+PATH="/usr/local/bin:$PATH"
+PATH="/usr/sbin:$PATH"
+PATH="/sbin:$PATH"
+PATH="$HOME/bin:$PATH"
+
 export PATH

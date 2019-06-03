@@ -1,0 +1,12 @@
+*
+
+!.aliases
+!.bash_profile
+!.bash_prompt
+!.exports
+!.extra
+!.functions
+!.git-completion.bash
+!.gitconfig
+!.gitignore
+!.path

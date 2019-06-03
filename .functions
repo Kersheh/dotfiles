@@ -1,0 +1,5 @@
+gitr() {
+  [ -z "$1" ] && echo "No commit distance from HEAD provided" && return
+  git add -A && git commit -m "gitr: comment/replace/delete this message"
+  git rebase -i HEAD~$1
+}

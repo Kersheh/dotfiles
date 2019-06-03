@@ -20,6 +20,3 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # Display local IP address
 alias myip="echo \"Local IP:\" && ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
-
-# Cena time
-alias 🔥="(python ~/bin/fire/fire.py &)"
