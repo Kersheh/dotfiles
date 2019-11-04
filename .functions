@@ -1,5 +1,27 @@
+# git easy rebase
 gitr() {
   [ -z "$1" ] && echo "No commit distance from HEAD provided" && return
-  git add -A && git commit -m "gitr: comment/replace/delete this message"
+  git add -A && git commit -m "gitr: set rebase command 'f' to fixup"
   git rebase -i HEAD~$1
+}
+
+# git easy push
+gitp() {
+  git push origin $(git rev-parse --abbrev-ref HEAD) "$@"
+}
+
+# git easy no-verify push
+gitv() {
+  git push origin $(git rev-parse --abbrev-ref HEAD) --no-verify "$@"
+}
+
+# git easy fetch and replace
+gitf() {
+  if [[ $(git rev-parse --is-inside-work-tree) == true ]]; then
+    read -p "Are you sure you want to fetch and reset branch $(git rev-parse --abbrev-ref HEAD)? (Y/n) " -n 1
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      git fetch origin && git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)
+    fi
+  fi
 }
