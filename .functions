@@ -25,3 +25,39 @@ gitf() {
     fi
   fi
 }
+
+# git easy rebase against branch
+gitrb() {
+  BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  git checkout $1 &&
+  git pull origin $1 &&
+  git checkout $BRANCH &&
+  git rebase $1
+}
+
+# git easy checkout master and pull
+gitm() {
+  git checkout master &&
+  git pull
+}
+
+# git easy checkout develop and pull
+gitd() {
+  git checkout develop &&
+  git pull origin develop
+}
+
+# git easy add all and commit
+gitc() {
+  npm run lint:fix && git add -A && git commit --no-verify -m "$@"
+}
+
+# git easy add all and commit (with pre-emptive eslint fix)
+gitcl() {
+  npm run lint:fix && git add -A && git commit --no-verify -m "$@"
+}
+
+# authored lines of code -- ignores generated snapshot files
+gitLOC() {
+  git ls-files | grep -Ev '^(.+).snap' | while read f; do git blame --line-porcelain $f | grep '^author '; done | sort -f | uniq -ic | sort -n
+}
