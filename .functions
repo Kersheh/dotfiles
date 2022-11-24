@@ -52,9 +52,9 @@ gitc() {
   npm run lint:fix && git add -A && git commit --no-verify -m "$@"
 }
 
-# git easy add all and commit (with pre-emptive eslint fix)
-gitcl() {
-  npm run lint:fix && git add -A && git commit --no-verify -m "$@"
+# full test snapshot replace, typescript validation, lint, commit, and push
+gitpc() {
+  npm run lint:fix && npm run ts-check && npm run test -- -u && git add -A && git commit --no-verify -m "$@" && gitv
 }
 
 # authored lines of code -- ignores generated snapshot files
